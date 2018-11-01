@@ -1,0 +1,20 @@
+{
+  "name": "node-chat-app",
+  "version": "1.0.0",
+  "description": "A simple node chat application based on socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.5.0"
+  },
+  "author": "Vedant Nandoskar",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5"
+  }
+}
