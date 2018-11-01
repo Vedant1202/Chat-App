@@ -38,7 +38,7 @@ app.get('/', function (req, res) {
 //======================================================================//
 
 app.listen(port, ip, function () {
-  console.log("Node Chat App has Started!!!");
+  console.log("Node Chat App has started on port " + port);
 });
 
 
