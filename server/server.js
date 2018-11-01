@@ -7,7 +7,11 @@
 // Variable declaration
 var express                 = require('express');
     app                     = express();
+    http                    = require('http');
+    server                  = http.createServer(app);
     path                    = require('path');
+    socketIO                = require('socket.io');
+    io                      = socketIO(server);
     publicPath              = path.join(__dirname, '../public');
     port                    = process.env.PORT || 3150;
     ip                      = process.env.IP || null;
@@ -19,6 +23,35 @@ app.set('view engine', 'html');
 //setup express
 app.use(express.static(publicPath));
 
+// ========================================================================//
+// ---------------------------- SOCKET.IO ---------------------------------//
+// ========================================================================//
+
+// Listen for a connection socket
+io.on('connection', function (socket) {
+  console.log("New user connected!"); //On connection
+
+  // socket.emit('newMessage', {                          // Server to Client
+  //   from: "Leo",
+  //   tex: "I'm back from injury!",
+  //   createdAt: 12.05
+  // });
+
+  socket.on('createMessage', function (newMessage) {   // Client to Server
+    var date = new Date();
+    var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    // console.log("Created new message", newMessage);
+    io.emit('newMessage', {
+      from: newMessage.from,
+      text: newMessage.text,
+      createdAt: current_time
+    });
+  });
+
+  socket.on('disconnect', function () {           // Disconnect handler
+    console.log("Disconnected from server!");
+  });
+});
 
 
 //=========================================================================//
@@ -37,7 +70,7 @@ app.get('/', function (req, res) {
 //------------------------------ Setup Server---------------------------//
 //======================================================================//
 
-app.listen(port, ip, function () {
+server.listen(port, ip, function () {
   console.log("Node Chat App has started on port " + port);
 });
 
