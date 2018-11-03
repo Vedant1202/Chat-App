@@ -12,9 +12,9 @@ socket.on('connect', function () {
 
 var date = new Date();
 socket.emit('createMessage', {                    // Client to Server
-  from: "Suarez",
-  text: "Good to see you, mate!",
-  createdAt: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+  // from: "Suarez",
+  // text: "Good to see you, mate!",
+  // createdAt: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
 }, function (data) {
   // console.log("Got the message! " + data);
 });
