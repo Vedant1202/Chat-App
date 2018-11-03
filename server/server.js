@@ -3,7 +3,7 @@
 //                               SERVER CONFIGURATION                                 //
 // ================================================================================== //
 // ================================================================================== //
- 
+
 // Variable declaration
 var express                 = require('express');
     app                     = express();
@@ -15,6 +15,9 @@ var express                 = require('express');
     publicPath              = path.join(__dirname, '../public');
     port                    = process.env.PORT || 3150;
     ip                      = process.env.IP || null;
+
+// Export functions declaration
+var {generateMessage}       = require('./utils/message.js');
 
 
 //set default files to ejs
@@ -29,7 +32,7 @@ app.use(express.static(publicPath));
 
 // Listen for a connection socket
 io.on('connection', function (socket) {
-  console.log("New user connected!"); //On connection
+  console.log("New user connected!");                  //On connection
 
   var date = new Date();
   var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -40,29 +43,13 @@ io.on('connection', function (socket) {
     createdAt: current_time
   });
 
-  socket.broadcast.emit('newMessage', {
-    from: "Admin",
-    text: "New User has joined!",
-    createdAt: current_time
-  });
+  socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
 
   socket.on('createMessage', function (newMessage) {   // Client to Server
-    var date = new Date();
-    var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-    // console.log("Created new message", newMessage);
-    // io.emit('newMessage', {
-    //   from: newMessage.from,
-    //   text: newMessage.text,
-    //   createdAt: current_time
-    // });
-    socket.broadcast.emit('newMessage', {
-        from: newMessage.from,
-        text: newMessage.text,
-        createdAt: current_time
-    });
+    socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new message has arrived'));
   });
 
-  socket.on('disconnect', function () {           // Disconnect handler
+  socket.on('disconnect', function () {               // Disconnect handler
     console.log("Disconnected from server!");
   });
 });
