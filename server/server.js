@@ -33,7 +33,6 @@ app.use(express.static(publicPath));
 // Listen for a connection socket
 io.on('connection', function (socket) {
   console.log("New user connected!");                  //On connection
-
   var date = new Date();
   var current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
@@ -45,8 +44,9 @@ io.on('connection', function (socket) {
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
 
-  socket.on('createMessage', function (newMessage) {   // Client to Server
+  socket.on('createMessage', function (newMessage, callback) {   // Client to Server
     socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+    callback('Sent from the server!');
   });
 
   socket.on('disconnect', function () {               // Disconnect handler
