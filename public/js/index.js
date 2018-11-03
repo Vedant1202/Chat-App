@@ -6,7 +6,7 @@
 var socket = io();
 
 // Connect handler
-socket.on('connect', function () { 
+socket.on('connect', function () {
   console.log("Connected to server!");
 });
 
@@ -16,7 +16,7 @@ socket.emit('createMessage', {                    // Client to Server
   text: "Good to see you, mate!",
   createdAt: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
 }, function (data) {
-  console.log("Got the message! " + data);
+  // console.log("Got the message! " + data);
 });
 
 socket.on('newMessage', function (message) {       // Server to Client
@@ -44,6 +44,6 @@ $('#msgForm').on('submit', function (e) {
     from: 'User',
     text: $('[name = message]').val()
   }, function () {
-    console.log("Message");
+    // console.log("Message");
   });
 });
