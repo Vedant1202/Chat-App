@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+
+body {
+  font-family: 'Montserrat' !important;
+  background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2017/03/santorini-6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#jumbotron-landing-1{
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+}
+
+#heading--landing-1{
+  font-size: 50px !important;
+  font-weight: 500 !important;
+}
