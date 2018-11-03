@@ -6,7 +6,7 @@
 var socket = io();
 
 // Connect handler
-socket.on('connect', function () {
+socket.on('connect', function () { 
   console.log("Connected to server!");
 });
 
