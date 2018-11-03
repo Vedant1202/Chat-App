@@ -46,7 +46,7 @@ io.on('connection', function (socket) {
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
 
   socket.on('createMessage', function (newMessage) {   // Client to Server
-    socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new message has arrived'));
+    socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
   });
 
   socket.on('disconnect', function () {               // Disconnect handler
