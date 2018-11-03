@@ -45,7 +45,7 @@ io.on('connection', function (socket) {
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
 
   socket.on('createMessage', function (newMessage, callback) {   // Client to Server
-    socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+    io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
     callback('Sent from the server!');
   });
 
