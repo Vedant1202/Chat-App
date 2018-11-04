@@ -51,13 +51,16 @@ $('#msgForm').on('submit', function (e) {
 var locationBuffer = $('#send-location');
 
 locationBuffer.click(function () {
-  if(navigator.geolocation){
+  if(!(navigator.geolocation)){
     return alert('Geolocation not supported by your browser!');
   }
 
   //Locate the user
   navigator.geolocation.getCurrentPosition(function (position) {
-    console.log(position);
+    socket.emit('createLocationMessage', {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+    });
   }, function () {
     alert('Access denied to fetch location!');
   });
