@@ -47,3 +47,19 @@ $('#msgForm').on('submit', function (e) {
     // console.log("Message");
   });
 });
+
+var locationBuffer = $('#send-location');
+
+locationBuffer.click(function () {
+  if(navigator.geolocation){
+    return alert('Geolocation not supported by your browser!');
+  }
+
+  //Locate the user
+  navigator.geolocation.getCurrentPosition(function (position) {
+    console.log(position);
+  }, function () {
+    alert('Access denied to fetch location!');
+  });
+
+});
