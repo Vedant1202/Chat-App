@@ -5,19 +5,19 @@
 // ================================================================================== //
 
 // Variable declaration
-var express                 = require('express');
-    app                     = express();
-    http                    = require('http');
-    server                  = http.createServer(app);
-    path                    = require('path');
-    socketIO                = require('socket.io');
-    io                      = socketIO(server);
-    publicPath              = path.join(__dirname, '../public');
-    port                    = process.env.PORT || 3150;
-    ip                      = process.env.IP || null;
+var express                                    = require('express');
+    app                                        = express();
+    http                                       = require('http');
+    server                                     = http.createServer(app);
+    path                                       = require('path');
+    socketIO                                   = require('socket.io');
+    io                                         = socketIO(server);
+    publicPath                                 = path.join(__dirname, '../public');
+    port                                       = process.env.PORT || 3150;
+    ip                                         = process.env.IP || null;
 
 // Export functions declaration
-var {generateMessage}       = require('./utils/message.js');
+var {generateMessage, generateLocationMessage} = require('./utils/message.js');
 
 
 //set default files to ejs
@@ -50,7 +50,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('createLocationMessage', function (coords) {
-    io.emit('newMessage', generateMessage('Admin', `${coords.latitude}, ${coords.longitude}`));
+    io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
   });
 
   socket.on('disconnect', function () {               // Disconnect handler

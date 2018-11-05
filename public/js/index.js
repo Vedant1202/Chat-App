@@ -28,6 +28,17 @@ socket.on('newMessage', function (message) {       // Server to Client
   $('#allMessages').append(li);
 });
 
+socket.on('newLocationMessage', function (message) {
+    var li = $('<li></li>');
+    var a  = $('<a target="_blank">My current location</a>');
+
+    li.text(`${message.from}: `);
+    a.attr('href', message.url);
+    li.append(a);
+
+    $('#allMessages').append(li);
+});
+
 // Disconnect handler
 socket.on('disconnect', function () {
   console.log("Disconnected from server!");
@@ -42,7 +53,7 @@ $('#msgForm').on('submit', function (e) {
 
   socket.emit('createMessage', {
     from: 'User',
-    text: $('[name = message]').val()
+    text: $('[name=message]').val()
   }, function () {
     // console.log("Message");
   });
