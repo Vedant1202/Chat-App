@@ -13,8 +13,8 @@ body {
 
 nav {
   font-family: 'Pacifico', cursive !important;
-  height: 5em;
-  background: linear-gradient(rgba(10, 60, 130, 1), rgba(10, 60, 130, 0.5)) !important;
+  height: 7.3em;
+  background: linear-gradient(rgba(10, 60, 130, 1), rgba(10, 60, 130, 0.2)) !important;
   color: white !important;
 }
 
@@ -32,8 +32,7 @@ nav {
   border-width: thin;
   border-color: orange;
   border-style: solid;
-  margin-top: 10%;
-  margin-bottom: 5%;
+  margin: 0% 2% 5% 1.4%;
 }
 
 .chat-buttons{
@@ -65,4 +64,40 @@ nav {
 hr{
   border-color: white;
   width: 85%;
+}
+
+.sidebar{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0;
+  border-width: thin;
+  border-color: orange;
+  border-style: solid;
+}
+
+.sidebar-header{
+  background-color: white;
+  padding: 3% 0% 3% 0%;
+  border-color: #7b7c7c !important;
+  border-width: 0.5px !important;
+}
+
+#sidebar-heading{
+  font-size: 25px;
+  color: #0b3789;
+  font-family: 'Pacifico', cursive !important;
+  font-weight: 300;
+  margin-left: 5%;
+}
+
+.mainbar-header{
+  background-color: white;
+  padding: 2% 0% 0% 0%;
+}
+
+#mainbar-heading{
+  font-size: 30px;
+  color: #0b3789;
+  font-family: 'Pacifico', cursive !important;
+  font-weight: 300;
+  margin-left: 5%;
 }
