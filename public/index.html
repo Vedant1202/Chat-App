@@ -12,38 +12,38 @@
       <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-    <!-- ==============================================================================================
-                                          BODY BEGINS
-    =============================================================================================== -->
-      <div class="jumbotron shadow-lg" id="jumbotron-landing-1">
-        <span id="heading--landing-1">Hello! Welcome to the Chat App!</span>
-        <hr>
-      </div>
+  <!-- ==============================================================================================
+                                        BODY BEGINS
+  =============================================================================================== -->
+  <nav class="navbar navbar-expand-lg shadow-lg">
+    <a class="navbar-brand" href="#">Welcome!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <span id="navbar-welcome">Node Chat App</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-      <div class="container">
-        <div class="jumbotron shadow-lg" id="jumbotron-landing-2">
-          <p>
-            <form class="form-control" id="msgForm" action="index.html" method="POST">
-              <div class="form-group">
-                <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" active>
-              </div>
-              <button type="submit" class="btn btn-primary" name="button">Send Message</button>
-              <button id="send-location" type="submit" class="btn btn-success" name="button">Send Location</button>
-            </form>
-          </p>
+  <div style="width: 80%; margin-left: 10%;">
+    <ol id="allMessages">
+
+    </ol>
+    <p>
+      <form class="form-control" id="msgForm" action="index.html" method="POST">
+        <div class="form-group">
+          <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" active>
         </div>
-          <p>
-            <div class="container">
-              <div class="jumbotron">
-                <div style="width: 80%; margin-left: 10%;">
-                  <ol id="allMessages">
+        <button type="submit" class="btn btn-primary" name="button">Send Message</button>
+        <button id="send-location" type="submit" class="btn btn-success" name="button">Send Location</button>
+      </form>
+    </p>
+  </div>
 
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </p>
-      </div>
 
 
 
