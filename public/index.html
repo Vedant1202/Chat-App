@@ -15,7 +15,7 @@
   <!-- ==============================================================================================
                                         BODY BEGINS
   =============================================================================================== -->
-  <nav class="navbar navbar-expand-lg shadow-lg">
+  <nav class="navbar navbar-expand-lg shadow-lg fixed-top">
     <a class="navbar-brand" href="#">Welcome!</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,22 +27,39 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav>              <!-- Navbar ends -->
 
-  <div style="width: 80%; margin-left: 10%;">
-    <div class="chat-msgs container rounded shadow">
-      <ol id="allMessages">
-        <!-- MESSAGES WILL BE APPENDED HERE -->
-      </ol>
-    </div>
-    <div class="container">
-      <form class="form-control fixed-bottom chat-buttons rounded shadow" id="msgForm" action="index.html" method="POST">
-        <div class="form-group">
-          <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" active style="margin-left: 10%;">
+
+  <div>
+    <div class="row" style="margin: 8% 0.2% 3% 1%; width: 100%;">
+      <div class="col-lg-2 rounded shadow-lg sidebar">
+          <div class="sidebar-header rounded border-bottom">
+            <span id="sidebar-heading">People</span>
+          </div>
+        <div class="sidebar-contents">
+
         </div>
-        <button type="submit" class="btn btn-primary" name="button" style="margin-left: 40%;">Send Message</button>
-        <button id="send-location" type="submit" class="btn btn-success" name="button" style="margin-left: 2%;">Send Location</button>
-      </form>
+      </div>
+      <div class="col-lg-10" style="padding: 0 !important;">
+        <div class="chat-msgs rounded shadow">
+          <div class="mainbar-header rounded border-bottom">
+            <span id="mainbar-heading">Messages</span>
+            <hr>
+          </div>
+          <ol id="allMessages">
+            <!-- MESSAGES WILL BE APPENDED HERE -->
+          </ol>
+        </div>
+        <div class="container">
+          <form class="form-control fixed-bottom chat-buttons rounded shadow" id="msgForm" action="index.html" method="POST">
+            <div class="form-group">
+              <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" autofocus="autofocus" style="margin-left: 10%; margin-top: 0.2%;">
+            </div>
+            <button type="submit" class="btn btn-primary" name="button" style="margin-left: 40%;">Send Message</button>
+            <button id="send-location" type="submit" class="btn btn-success" name="button" style="margin-left: 2%;">Send Location</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
