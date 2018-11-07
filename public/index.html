@@ -22,26 +22,28 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <span id="navbar-welcome">Node Chat App</span>
+        <li class="nav-item" style="width: 60%;">
+          <span id="navbar-header">Node Chat App</span>
         </li>
       </ul>
     </div>
   </nav>
 
   <div style="width: 80%; margin-left: 10%;">
-    <ol id="allMessages">
-
-    </ol>
-    <p>
-      <form class="form-control" id="msgForm" action="index.html" method="POST">
+    <div class="chat-msgs container rounded shadow">
+      <ol id="allMessages">
+        <!-- MESSAGES WILL BE APPENDED HERE -->
+      </ol>
+    </div>
+    <div class="container">
+      <form class="form-control fixed-bottom chat-buttons rounded shadow" id="msgForm" action="index.html" method="POST">
         <div class="form-group">
-          <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" active>
+          <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" active style="margin-left: 10%;">
         </div>
-        <button type="submit" class="btn btn-primary" name="button">Send Message</button>
-        <button id="send-location" type="submit" class="btn btn-success" name="button">Send Location</button>
+        <button type="submit" class="btn btn-primary" name="button" style="margin-left: 40%;">Send Message</button>
+        <button id="send-location" type="submit" class="btn btn-success" name="button" style="margin-left: 2%;">Send Location</button>
       </form>
-    </p>
+    </div>
   </div>
 
 
