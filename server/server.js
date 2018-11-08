@@ -46,7 +46,7 @@ io.on('connection', function (socket) {
 
   socket.on('createMessage', function (newMessage, callback) {   // Client to Server
     io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
-    callback('Sent from the server!');
+    callback();
   });
 
   socket.on('createLocationMessage', function (coords) {
@@ -67,8 +67,6 @@ io.on('connection', function (socket) {
 app.get('/', function (req, res) {
   res.render('index');
 });
-
-
 
 
 //=======================================================================//
