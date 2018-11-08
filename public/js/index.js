@@ -32,7 +32,7 @@ var date = new Date();
 
 socket.on('newMessage', function (message) {       // Server to Client
 
-  var formattedTime = moment(message.createdAt).format('H:mm a');
+  var formattedTime = (moment(message.createdAt)).to(moment());
   var template = $('#message-template').html();
   var html = Mustache.render(template, {
     text: message.text,
@@ -45,7 +45,7 @@ socket.on('newMessage', function (message) {       // Server to Client
 });
 
 socket.on('newLocationMessage', function (message) {
-    var formattedTime = moment(message.createdAt).format('H:MM a');
+    var formattedTime = (moment(message.createdAt)).to(moment());
     var template = $('#locationMessage-template').html();
     var html = Mustache.render(template, {
       url: message.url,
