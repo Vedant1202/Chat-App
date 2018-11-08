@@ -5,6 +5,24 @@
 
 var socket = io();
 
+//Function for auto scrolling when a new message arrives
+function scrollToEnd() {
+  //Selectors
+  var messages       = $('#allMessages');
+      newMessage     = messages.children('.message-line:last-child');
+
+  //Heights
+  var clientHeight = messages.prop('clientHeight');
+      scrollTop         = messages.prop('scrollTop');
+      scrollHeight      = messages.prop('scrollHeight');
+      newMessageHeight  = newMessage.innerHeight();
+      lastMessageHeight = newMessage.prev().innerHeight();
+
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    messages.scrollTop(scrollHeight);
+  }
+};
+
 // Connect handler
 socket.on('connect', function () {
   console.log("Connected to server!");
@@ -23,6 +41,7 @@ socket.on('newMessage', function (message) {       // Server to Client
   });
 
   $('#allMessages').append(html);
+  scrollToEnd();
 });
 
 socket.on('newLocationMessage', function (message) {
@@ -34,14 +53,8 @@ socket.on('newLocationMessage', function (message) {
       createdAt: formattedTime
     });
 
-    // var li = $('<li></li>');
-    // var a  = $('<a target="_blank">My current location</a>');
-    //
-    // li.text(`${message.from} (${formattedTime}) : `);
-    // a.attr('href', message.url);
-    // li.append(a);
-
     $('#allMessages').append(html);
+    scrollToEnd();
 });
 
 // Disconnect handler
@@ -83,6 +96,7 @@ locationButton.click(function () {
     });
   }, function () {
       locationButton.removeAttr('disabled');
+      locationButton.text('Send Location');
       alert('Access denied to fetch location!');
   });
 
