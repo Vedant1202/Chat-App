@@ -18,6 +18,10 @@ nav {
   color: white !important;
 }
 
+button{
+  font-family: 'Pacifico', cursive !important;
+}
+
 .navbar-brand{
   color: white;
   margin-left: 5%;
