@@ -39,7 +39,7 @@ io.on('connection', function (socket) {
   socket.emit('newMessage', {                          // Server to Client
     from: "Admin",
     text: "Welcome to Chat App",
-    createdAt: current_time
+    createdAt: current_time  
   });
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
