@@ -46,7 +46,7 @@ button{
 #allMessages{
   margin: 3% 1% 3% 5%;
   line-height: 2em;
-  max-height: 335px;
+  max-height: 310px;
   overflow: scroll;
   overflow-x:hidden;
 
