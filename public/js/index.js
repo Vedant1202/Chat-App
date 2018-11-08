@@ -70,7 +70,7 @@ locationButton.click(function () {
   locationButton.attr('disabled', 'disabled').text('Sending Location...'); //Disable button while the location is being sent
 
   //Locate the user
-  navigator.geolocation.getCurrentPosition(function (position) {4
+  navigator.geolocation.getCurrentPosition(function (position) {
     locationButton.removeAttr('disabled').text('Send Location'); //Remove disable state of button when location is sent
     socket.emit('createLocationMessage', {
       latitude: position.coords.latitude,
