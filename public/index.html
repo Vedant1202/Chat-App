@@ -63,7 +63,39 @@
     </div>
   </div>
 
+  <script id="message-template" type="text/template">
+    <div class="row message-line">
+      <div class="col-12">
+        <div class="message-header row">
+          <span class="message-from">{{from}}</span>
+          <span class="message-time">( {{createdAt}} )</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="message-text row">
+          ->  {{text}}
+        </div>
+      </div>
+    </div>
+  </script>
 
+  <script id="locationMessage-template" type="text/template">
+    <div class="row message-line">
+      <div class="col-12">
+        <div class="message-header row">
+          <span class="message-from">{{from}}</span>
+          <span class="message-time">( {{createdAt}} )</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="message-line-link row">
+          <span class="message-location-link">
+            -> <a href="{{url}}" target="_blank">My location</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </script>
 
 
     <!-- ==============================================================================================
@@ -89,7 +121,10 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <!-- =============== INDEX.JS IMPORT ============== -->
     <script type="text/javascript" src="/js/index.js"></script>
-
+    <!-- =============== MOMENT.JS IMPORT ============== -->
+    <script type="text/javascript" src="/js/libs/moment.js"></script>
+    <!-- =============== MUSTACHE.JS IMPORT ============== -->
+    <script type="text/javascript" src="/js/libs/mustache.js"></script>
 
   </body>
 </html>
