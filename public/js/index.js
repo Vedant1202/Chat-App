@@ -6,7 +6,7 @@
 var socket = io();
 
 //Function for auto scrolling when a new message arrives
-function scrollToEnd() {
+function scrollToEnd() { 
   //Selectors
   var messages       = $('#allMessages');
       newMessage     = messages.children('.message-line:last-child');
