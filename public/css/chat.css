@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
+  font-family: 'Montserrat' !important;
+  background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2017/03/santorini-6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+nav {
+  font-family: 'Pacifico', cursive !important;
+  height: 7.3em;
+  background: linear-gradient(rgba(10, 60, 130, 1), rgba(10, 60, 130, 0.2)) !important;
+  color: white !important;
+}
+
+button{
+  font-family: 'Pacifico', cursive !important;
+}
+
+.navbar-brand{
+  color: white;
+  margin-left: 5%;
+}
+
+.navbar-nav{
+  width: 100%;
+}
+
+.chat-msgs{
+  background-color: white !important;
+  border-width: thin;
+  border-color: orange;
+  border-style: solid;
+  margin: 0% 2% 5% 1.4%;
+}
+
+.chat-buttons{
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+#allMessages{
+  margin: 3% 1% 3% 5%;
+  line-height: 2em;
+  max-height: 310px;
+  overflow: scroll;
+  overflow-x:hidden;
+
+}
+
+#navbar-header{
+  font-size: 35px;
+  font-weight: 400;
+  margin-left: 55%;
+}
+
+#msgForm{
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  padding-bottom: 7% !important;
+}
+
+.inputMsg{
+  width: 80%;
+}
+
+hr{
+  border-color: white;
+  width: 85%;
+}
+
+.sidebar{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0;
+  border-width: thin;
+  border-color: orange;
+  border-style: solid;
+  height: 490px !important;
+  overflow: auto;
+}
+
+.sidebar-header{
+  background-color: white;
+  padding: 3% 0% 3% 0%;
+  border-color: #7b7c7c !important;
+  border-width: 0.5px !important;
+}
+
+#sidebar-heading{
+  font-size: 25px;
+  color: #0b3789;
+  font-family: 'Pacifico', cursive !important;
+  font-weight: 300;
+  margin-left: 5%;
+}
+
+.mainbar-header{
+  background-color: white;
+  padding: 2% 0% 0% 0%;
+}
+
+#mainbar-heading{
+  font-size: 30px;
+  color: #0b3789;
+  font-family: 'Pacifico', cursive !important;
+  font-weight: 300;
+  margin-left: 5%;
+}
+
+.message-line{
+  margin-bottom: 15px;
+}
+
+.message-line-link{
+  margin-bottom: 0px;
+}
+
+.message-from{
+  font-size: 17px;
+  color: #68676b;
+}
+
+.message-time{
+  font-size: 12px;
+  margin-left: 10px;
+  color: #a0a0a0;
+}
+
+.message-text{
+  font-weight: 600;
+}
+
+.message-location-link{
+  font-weight: 600;
+}
