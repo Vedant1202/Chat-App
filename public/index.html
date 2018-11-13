@@ -3,99 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>A simple node chat app</title>
-      <!-- =============== BOOTSTRAP CSS IMPORT ================= -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous">
-      <!-- =============== CHAT ICON ================= -->
-      <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/keynote-and-powerpoint-icons/256/Messages-512.png">
-      <link rel="stylesheet" href="/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- =============== BOOTSTRAP CSS IMPORT ================= -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <!-- =============== CHAT ICON ================= -->
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/keynote-and-powerpoint-icons/256/Messages-512.png">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-  <!-- ==============================================================================================
-                                        BODY BEGINS
-  =============================================================================================== -->
-  <nav class="navbar navbar-expand-lg shadow-lg fixed-top">
-    <a class="navbar-brand" href="#">Welcome!</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item" style="width: 60%;">
-          <span id="navbar-header">Node Chat App</span>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar ends -->
+    <!-- ==============================================================================================
+                                          BODY BEGINS
+    =============================================================================================== -->
 
-  <div>
-    <div class="row" style="margin: 8% 0.2% 3% 1%; width: 100%;">
-      <div class="col-lg-2 rounded shadow-lg sidebar">
-          <div class="sidebar-header rounded border-bottom">
-            <span id="sidebar-heading">People</span>
-          </div>
-        <div class="sidebar-contents">
+    <nav class="navbar navbar-expand-lg shadow-lg fixed-top">
+      <a class="navbar-brand" href="#">Welcome!</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" style="width: 60%;">
+            <span id="navbar-header">Node Chat App</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar ends -->
 
-        </div>
-      </div>
-      <div class="col-lg-10" style="padding: 0 !important;">
-        <div class="chat-msgs rounded shadow">
-          <div class="mainbar-header rounded border-bottom">
-            <span id="mainbar-heading">Messages</span>
-            <hr>
-          </div>
-          <ul id="allMessages">
-            <!-- MESSAGES WILL BE APPENDED HERE -->
-          </ul>
-        </div>
-        <div class="container">
-          <form class="form-control fixed-bottom chat-buttons rounded shadow" id="msgForm" action="index.html" method="POST">
-            <div class="form-group">
-              <input class="form-control inputMsg" type="text" name="message" placeholder="Write message" autofocus="autofocus" style="margin-left: 10%; margin-top: 0.2%;">
-            </div>
-            <button type="submit" class="btn btn-primary" name="button" style="margin-left: 40%;">Send Message</button>
-            <button id="send-location" type="submit" class="btn btn-success" name="button" style="margin-left: 2%;">Send Location</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script id="message-template" type="text/template">
-    <div class="row message-line">
-      <div class="col-12">
-        <div class="message-header row">
-          <span class="message-from">{{from}}</span>
-          <span class="message-time">( {{createdAt}} )</span>
+    <div class="container-fluid" align="center" style="margin-top: 12%;">
+      <form action="./chat.html" class="login">
+        <div class="alert alert-error" style="color: red;">
         </div>
-      </div>
-      <div class="col-12">
-        <div class="message-text row">
-          ->  {{text}}
-        </div>
-      </div>
+          <p class="title">Join a Chat Room</p>
+            <input type="text" placeholder="Username" name="username" autofocus/>
+              <i class="fa fa-user"></i>
+            <input type="password" placeholder="Password" name="password"/>
+              <i class="fa fa-key"></i>
+            <input type="text" placeholder="Room Name" name="room-name"/>
+              <i class="fa fa-users"></i>
+            <!-- <a href="../home.html">Go back</a> -->
+            <button type="submit">
+              <span class="state">Join</span>
+            </button>
+          </p>
+      </form>
     </div>
-  </script>
 
-  <script id="locationMessage-template" type="text/template">
-    <div class="row message-line">
-      <div class="col-12">
-        <div class="message-header row">
-          <span class="message-from">{{from}}</span>
-          <span class="message-time">( {{createdAt}} )</span>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="message-line-link row">
-          <span class="message-location-link">
-            -> <a href="{{url}}" target="_blank">My location</a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </script>
+
+
 
 
     <!-- ==============================================================================================
@@ -121,10 +81,7 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <!-- =============== INDEX.JS IMPORT ============== -->
     <script type="text/javascript" src="/js/index.js"></script>
-    <!-- =============== MOMENT.JS IMPORT ============== -->
-    <script type="text/javascript" src="/js/libs/moment.js"></script>
-    <!-- =============== MUSTACHE.JS IMPORT ============== -->
-    <script type="text/javascript" src="/js/libs/mustache.js"></script>
+
 
   </body>
 </html>
