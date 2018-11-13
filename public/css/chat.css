@@ -6,7 +6,7 @@ body {
   font-family: 'Montserrat' !important;
   background-image: url("https://www.hdwallpaper.nu/wp-content/uploads/2017/03/santorini-6.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center; 
   background-attachment: fixed;
   background-repeat: no-repeat;
 }

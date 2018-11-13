@@ -6,7 +6,7 @@
 var socket = io();
 
 //Function for auto scrolling when a new message arrives
-function scrollToEnd() { 
+function scrollToEnd() {
   //Selectors
   var messages       = $('#allMessages');
       newMessage     = messages.children('.message-line:last-child');
@@ -72,7 +72,7 @@ $('#msgForm').on('submit', function (e) {
   var messageTextbox = $('[name=message]');
   socket.emit('createMessage', {
     from: 'User',
-    text: messageTextbox.val()
+    text: messageTextbox.val() 
   }, function () {
     messageTextbox.val('');
   });
