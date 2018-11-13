@@ -13,15 +13,14 @@ var express                                    = require('express');
     socketIO                                   = require('socket.io');
     io                                         = socketIO(server);
     publicPath                                 = path.join(__dirname, '../public');
+    viewsPath                                  = path.join(__dirname + '../views');
     port                                       = process.env.PORT || 3150;
     ip                                         = process.env.IP || null;
 
 // Export functions declaration
 var {generateMessage, generateLocationMessage} = require('./utils/message.js');
 
-
-//set default files to ejs
-app.set('view engine', 'html');
+app.set('port', (process.env.PORT || 3150));
 
 //setup express
 app.use(express.static(publicPath));
@@ -39,7 +38,7 @@ io.on('connection', function (socket) {
   socket.emit('newMessage', {                          // Server to Client
     from: "Admin",
     text: "Welcome to Chat App",
-    createdAt: current_time  
+    createdAt: current_time
   });
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user has joined!'));
@@ -67,6 +66,7 @@ io.on('connection', function (socket) {
 app.get('/', function (req, res) {
   res.render('index');
 });
+
 
 
 //=======================================================================//
